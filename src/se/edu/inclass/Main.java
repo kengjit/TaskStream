@@ -5,6 +5,7 @@ import se.edu.inclass.task.Deadline;
 import se.edu.inclass.task.Task;
 import se.edu.inclass.task.TaskNameComparator;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -52,6 +53,14 @@ public class Main {
         tasks.stream() // convert data to stream
                 .forEach(System.out::println);
     }
+
+    public static void printDeadlineWithStreams(ArrayList<Task> tasks) {
+        System.out.println("Printing deadlines with streams:");
+        tasks.stream() // convert data to stream
+                .filter((t) -> (t instanceof Deadline)) // filtering using lambda
+                .forEach(System.out::println);
+    }
+
     public static void printDeadlines(ArrayList<Task> tasksData) {
         for (Task t : tasksData) {
             if (t instanceof Deadline) {
